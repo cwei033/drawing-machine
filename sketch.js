@@ -19,9 +19,10 @@ function draw() {
 
 function keyTyped() {
 
-  if (key === ' ') {
+  if (key === 's') {
     console.log(`space`);
-    // saveCanvas('fileName', 'jpeg');
+    saveCanvas('fileName', 'jpeg');
+  } else if (key === ' ') {
     strokeWeight(5);
     noFill();
     beginShape();
