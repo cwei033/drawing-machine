@@ -1,0 +1,19 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 10px auto;
+  text-align: center;
+}
+
+p {
+  margin: 10px auto;
+  text-align: center;
+}
