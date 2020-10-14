@@ -24,6 +24,7 @@ function keyTyped() {
     saveCanvas('fileName', 'jpeg');
   } else if (key === ' ') {
     strokeWeight(5);
+    stroke(255);
     noFill();
     beginShape();
     for (let i = 0; i < array.length; i++) {
