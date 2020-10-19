@@ -1,14 +1,26 @@
-html, body {
+html {
   margin: 0;
   padding: 0;
-  background-color: white;
-}
-canvas {
-  display: block;
-  margin: 0 auto;
+  /* background-color: white; */
 }
 
-h1 {
+body {
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+canvas {
+  /* display: block; */
+  margin: auto;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  border: 5px solid orange;
+}
+
+/* h1 {
   margin: 10px auto;
   text-align: center;
 }
@@ -16,4 +28,4 @@ h1 {
 p {
   margin: 10px auto;
   text-align: center;
-}
+} */
