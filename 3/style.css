@@ -1,0 +1,39 @@
+html {
+  margin: 0;
+  padding: 0;
+  /* background-color: white; */
+}
+
+body {
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+canvas {
+  /* display: block; */
+  margin: 0 auto;
+  display: block;
+  /* top: 0; */
+  /* left: 0; */
+  position: relative;
+  z-index: -1;
+}
+
+h1 {
+  margin: 10px auto;
+  padding-top: 15px;
+  text-align: center;
+}
+
+p {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.background {
+  background-color:black;
+  width: 1000px;
+  height: 100px;
+  margin: 0 auto;
+}
