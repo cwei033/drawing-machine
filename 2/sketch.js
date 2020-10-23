@@ -8,16 +8,22 @@ let strokeWidth = 2;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
+  drawGrid();
+
+
   stroke(255);
 
 }
 
 function draw() {
 
+
   if (mouseIsPressed) {
 
     if (on == true) {
-      bg = background(1, 1, 1, 35);
+      // bg = background(1, 1, 1, 5);
+      drawGrid();
+
     }
 
     strokeWeight(strokeWidth);
@@ -52,4 +58,19 @@ function keyTyped() {
 
 
 return false;
+}
+
+function drawGrid() {
+  numCells = 30;
+    for (let i = 0; i <= width; i += width/numCells) {
+      for (let j = 0; j <= height; j += height/numCells) {
+        push();
+        fill(5, 5, 5, 5);
+        stroke(255);
+        strokeWeight(1);
+        rect(i, j, width/numCells, height/numCells);
+        pop();
+      }
+
+    }
 }
