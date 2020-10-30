@@ -80,9 +80,7 @@ let sketch2 = function(p) {
 
   p.setup = function() {
     p.createCanvas(p.windowWidth * .68, 700);
-    p.background('#E5DAC6');
-    p.stroke(255);
-    // p.strokeWeight(3);
+    p.background(255);
     p.colorPicker = p.createColorPicker('#000000');
     // p.colorPicker.parent('pickerPosition');
     p.slider = p.createSlider(1, 30, 3);
@@ -103,7 +101,7 @@ let sketch2 = function(p) {
     if (p.key === 's') {
       p.saveCanvas('fileName', 'jpg');
     } else if (p.key === 'c') {
-      p.background('#E5DAC6');
+      p.background(255);
     }
   }
 };
