@@ -8,12 +8,17 @@ let sketch1 = function(p) {
   let buttonU = 0.5;
   let buttonRU = 0.15;
 
+  p.preload = function() {
+    p.titleFont = p.loadFont('SigmarOne-Regular.ttf');
+    p.halloweenFont = p.loadFont('Rye-Regular.ttf');
+  }
+
   p.setup = function() {
     p.createCanvas(480, 700);
     p.button = p.createButton("Pull Prompt!");
     p.button.mousePressed(p.buttonPressed);
     p.textAlign(p.CENTER);
-    p.background(200);
+    p.background('orange');
 
 
   }
@@ -28,6 +33,7 @@ let sketch1 = function(p) {
         buttonRU = -buttonRU;
       }
     }
+    p.drawTitle();
   }
 
   p.randomizer = function() {
@@ -42,9 +48,8 @@ let sketch1 = function(p) {
     p.push();
     randomPrompt = p.int(p.random(prompts.length));
     p.rectMode(p.CENTER);
-    p.fill(255);
+    p.fill(0);
     p.textSize(15);
-    // p.textStyle(p.BOLD);
     p.text(`${prompts[randomPrompt]}`, 240, 580);
     p.pop();
   }
@@ -74,6 +79,18 @@ let sketch1 = function(p) {
     p.rect(0, 0, 12, 2);
     p.rect(0, 0, 2, 12);
     p.pop();
+  }
+
+  p.drawTitle = function() {
+    p.textSize(65);
+    p.textFont(p.halloweenFont);
+    p.stroke(255);
+    p.strokeWeight(3);
+    p.text(`PICTIONARY`, 240, 120);
+    p.textSize(18);
+    p.strokeWeight(2);
+    p.textFont(p.halloweenFont);
+    p.text(`[halloween edition]`, 350, 142);
   }
 };
 
