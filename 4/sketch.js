@@ -15,8 +15,10 @@ let sketch1 = function(p) {
 
   p.setup = function() {
     p.createCanvas(480, 700);
+    p.push();
     p.button = p.createButton("Pull Prompt!");
     p.button.mousePressed(p.buttonPressed);
+    p.pop();
     p.textAlign(p.CENTER);
     p.background('orange');
 
@@ -91,6 +93,11 @@ let sketch1 = function(p) {
     p.strokeWeight(2);
     p.textFont(p.halloweenFont);
     p.text(`[halloween edition]`, 350, 142);
+    p.push();
+    p.textAlign(p.CORNER);
+    p.text(`how to play:
+- press 's' to save drawing`, 30, 210);
+    p.pop();
   }
 };
 
@@ -102,9 +109,11 @@ let sketch2 = function(p) {
   p.setup = function() {
     p.createCanvas(1305, 700);
     p.background(255);
+    p.push();
     p.colorPicker = p.createColorPicker('#000000');
     // p.colorPicker.parent('pickerPosition');
     p.slider = p.createSlider(1, 30, 3);
+    p.pop();
 
   }
 

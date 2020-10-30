@@ -44,14 +44,14 @@ p {
 }
 
 #left {
-  flex: 20%;
+  flex: 30%;
   margin-left: auto;
   padding-top: 90px;
   margin-right: -20px;
 }
 
 #right {
-  flex: 62%;
+  flex: 70%;
   margin-right: auto;
   padding-top: 90px;
   margin-left: -20px;
