@@ -58,18 +58,6 @@ function keyTyped() {
   return false;
 }
 
-// function drawRectangles() {
-//   push();
-//   rectMode(CENTER);
-//   fill(100);
-//   rect(width / 2, 150, 1000, windowHeight / 3);
-//   fill(150);
-//   rect(width / 2, windowHeight * .33 + 150, 1000, windowHeight / 3);
-//   fill(200);
-//   rect(width / 2, windowHeight * .66 + 160, 1000, windowHeight / 3);
-//   pop();
-// }
-
 function randomizer() {
   animating = false;
   noStroke();

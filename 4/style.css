@@ -2,7 +2,7 @@ html {
   margin: 0;
   padding: 0;
   /* background-color: white; */
-  background-image: url('dots.jpg');
+  background-image: url('diagonal-squares.png');
 }
 
 body {
@@ -43,15 +43,16 @@ p {
   display: flex;
 }
 
-#column {
-  flex: 50%;
+#left {
+  flex: 20%;
   padding: 10px;
-}
-
-#one {
   margin-left: auto;
+  padding-top: 80px;
 }
 
-#two {
+#right {
+  flex: 62%;
+  padding: 10px;
   margin-right: auto;
+  padding-top: 80px;
 }
