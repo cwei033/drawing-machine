@@ -9,7 +9,7 @@ let sketch1 = function(p) {
   let buttonU = 0.5;
 
   p.setup = function() {
-    p.createCanvas(500, 700);
+    p.createCanvas(p.windowWidth*.25, 700);
     p.button = p.createButton("Pull Prompt!");
     p.button.mousePressed(p.buttonPressed);
     p.textAlign(p.CENTER);
@@ -78,7 +78,7 @@ let sketch1 = function(p) {
 
 let sketch2 = function(p) {
   p.setup = function() {
-    p.createCanvas(1300, 700);
+    p.createCanvas(p.windowWidth*.68, 700);
     p.background('#E5DAC6');
     p.stroke(255);
     p.strokeWeight(3);

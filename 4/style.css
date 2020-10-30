@@ -47,12 +47,15 @@ p {
   flex: 20%;
   padding: 10px;
   margin-left: auto;
-  padding-top: 80px;
+  padding-top: 90px;
+  margin-right: -20px;
+  z-index: -1;
 }
 
 #right {
   flex: 62%;
   padding: 10px;
   margin-right: auto;
-  padding-top: 80px;
+  padding-top: 90px;
+  margin-left: -20px;
 }
