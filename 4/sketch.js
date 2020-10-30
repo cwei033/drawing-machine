@@ -4,11 +4,12 @@ let sketch1 = function(p) {
   let randomPrompt;
   let animating = false;
   let buttonTurn = 0;
-  let buttonMove = 475;
+  let buttonMove = 240;
   let buttonU = 0.5;
+  let buttonRU = 0.15;
 
   p.setup = function() {
-    p.createCanvas(p.windowWidth * .25, 700);
+    p.createCanvas(480, 700);
     p.button = p.createButton("Pull Prompt!");
     p.button.mousePressed(p.buttonPressed);
     p.textAlign(p.CENTER);
@@ -20,10 +21,11 @@ let sketch1 = function(p) {
   p.draw = function() {
     if (animating == true) {
       p.drawButton(buttonMove, buttonTurn);
-      buttonTurn += 0.15;
+      buttonTurn += buttonRU;
       buttonMove += buttonU;
-      if (buttonMove >= 534.6 || buttonMove <= 475) {
+      if (buttonMove >= 260 || buttonMove <= 220) {
         buttonU = -buttonU;
+        buttonRU = -buttonRU;
       }
     }
   }
@@ -31,9 +33,10 @@ let sketch1 = function(p) {
   p.randomizer = function() {
     animating = false;
     p.push();
+    p.rectMode(p.CENTER);
     p.noStroke();
     p.fill('#757472');
-    p.rect(0, 0, 1000, 50);
+    p.rect(240, 580, 1000, 50);
     p.pop();
 
     p.push();
@@ -42,7 +45,7 @@ let sketch1 = function(p) {
     p.fill(255);
     p.textSize(15);
     // p.textStyle(p.BOLD);
-    p.text(`${prompts[randomPrompt]}`, 250, 30);
+    p.text(`${prompts[randomPrompt]}`, 240, 580);
     p.pop();
   }
 
@@ -55,16 +58,17 @@ let sketch1 = function(p) {
     p.push();
     p.noStroke();
     p.fill('#757472');
-    p.rect(0, 0, 1000, 50);
+    p.rectMode(p.CENTER);
+    p.rect(240, 580, 1000, 50);
     p.fill(255);
     p.stroke('orange');
     p.strokeWeight(4);
-    p.circle(x, 25, 30);
+    p.circle(x, 580, 25);
     p.pop();
     p.push();
     p.noStroke();
     p.rectMode(p.CENTER);
-    p.translate(x, 25);
+    p.translate(x, 580);
     p.rotate(rotation);
     p.fill(0);
     p.rect(0, 0, 12, 2);
@@ -79,7 +83,7 @@ let sketch2 = function(p) {
   let slider;
 
   p.setup = function() {
-    p.createCanvas(p.windowWidth * .68, 700);
+    p.createCanvas(1305, 700);
     p.background(255);
     p.colorPicker = p.createColorPicker('#000000');
     // p.colorPicker.parent('pickerPosition');
