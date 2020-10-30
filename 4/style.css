@@ -48,7 +48,6 @@ p {
   margin-left: auto;
   padding-top: 90px;
   margin-right: -20px;
-  z-index: -1;
 }
 
 #right {
@@ -56,10 +55,4 @@ p {
   margin-right: auto;
   padding-top: 90px;
   margin-left: -20px;
-}
-
-#pickerPosition {
-  position: absolute;
-  padding-top: 673px;
-  padding-left: 38px;
 }
