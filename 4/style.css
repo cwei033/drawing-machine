@@ -45,7 +45,6 @@ p {
 
 #left {
   flex: 20%;
-  padding: 10px;
   margin-left: auto;
   padding-top: 90px;
   margin-right: -20px;
@@ -54,8 +53,13 @@ p {
 
 #right {
   flex: 62%;
-  padding: 10px;
   margin-right: auto;
   padding-top: 90px;
   margin-left: -20px;
+}
+
+#pickerPosition {
+  position: absolute;
+  padding-top: 673px;
+  padding-left: 38px;
 }

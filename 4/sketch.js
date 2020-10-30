@@ -1,4 +1,3 @@
-
 let sketch1 = function(p) {
   let button;
   let prompts = ["Spongebob eating candy while Squidward puts on clown makeup", "Donald Trump in a Donald Duck costume", "Jack Skellington carving a pumpkin", "Zombified Sanderson Sisters", "Addams family shopping at Target", "apple bobbing except the apples are skulls", "black cat stepping on a crack, breaking your mama's back", "Monster Mash", "Oogie Boogie in a Santa costume", "witches sitting around a campfire roasting marshmallows", "Frankenstein's monster in a werewolf costume", "three skeletons as the Three Musketeers", "vampire Romen and mummy Juliet"];
@@ -9,7 +8,7 @@ let sketch1 = function(p) {
   let buttonU = 0.5;
 
   p.setup = function() {
-    p.createCanvas(p.windowWidth*.25, 700);
+    p.createCanvas(p.windowWidth * .25, 700);
     p.button = p.createButton("Pull Prompt!");
     p.button.mousePressed(p.buttonPressed);
     p.textAlign(p.CENTER);
@@ -27,7 +26,6 @@ let sketch1 = function(p) {
         buttonU = -buttonU;
       }
     }
-    // p.circle(20, 20, 20);
   }
 
   p.randomizer = function() {
@@ -77,17 +75,26 @@ let sketch1 = function(p) {
 
 
 let sketch2 = function(p) {
+  let colorPicker;
+  let slider;
+
   p.setup = function() {
-    p.createCanvas(p.windowWidth*.68, 700);
+    p.createCanvas(p.windowWidth * .68, 700);
     p.background('#E5DAC6');
     p.stroke(255);
-    p.strokeWeight(3);
+    // p.strokeWeight(3);
+    p.colorPicker = p.createColorPicker('#000000');
+    // p.colorPicker.parent('pickerPosition');
+    p.slider = p.createSlider(1, 30, 3);
 
   }
 
   p.draw = function() {
+    let lineWidth = p.slider.value();
+    p.strokeWeight(lineWidth);
+
     if (p.mouseIsPressed) {
-      p.stroke(255);
+      p.stroke(p.colorPicker.color());
       p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
     }
   }
