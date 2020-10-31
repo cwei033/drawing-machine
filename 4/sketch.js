@@ -1,28 +1,33 @@
 let sketch1 = function(p) {
   let button;
-  let prompts = ["Spongebob eating candy while Squidward puts on clown makeup", "Donald Trump in a Donald Duck costume", "Jack Skellington carving a pumpkin", "Zombified Sanderson Sisters", "Addams family shopping at Target", "apple bobbing except the apples are skulls", "black cat stepping on a crack, breaking your mama's back", "Monster Mash", "Oogie Boogie in a Santa costume", "witches sitting around a campfire roasting marshmallows", "Frankenstein's monster in a werewolf costume", "three skeletons as the Three Musketeers", "vampire Romen and mummy Juliet"];
+  let prompts = ["Squidward putting on clown makeup", "Donald Trump in a Donald Duck costume", "Jack Skellington carving a pumpkin", "Zombified Sanderson Sisters", "Addams family shopping at Target", "apple bobbing except the apples are skulls", "black cat stepping on a crack", "Monster Mash", "Oogie Boogie in a Santa costume", "witches giving out candy", "Frankenstein's monster in a werewolf costume", "three skeletons as the Three Musketeers", "vampire Romen and mummy Juliet"];
   let randomPrompt;
   let animating = false;
   let buttonTurn = 0;
   let buttonMove = 240;
   let buttonU = 0.5;
   let buttonRU = 0.15;
+  let bg;
 
   p.preload = function() {
     p.titleFont = p.loadFont('SigmarOne-Regular.ttf');
     p.halloweenFont = p.loadFont('Rye-Regular.ttf');
+    p.playFont = p.loadFont('IMFellDWPicaSC-Regular.ttf');
+    p.typeFont = p.loadFont('atwriter.ttf');
+    p.bg = p.loadImage('pinstripe.jpg');
   }
 
   p.setup = function() {
-    p.createCanvas(480, 700);
+    p.createCanvas(p.windowWidth*.25, 700);
     p.push();
     p.button = p.createButton("Pull Prompt!");
     p.button.mousePressed(p.buttonPressed);
     p.pop();
     p.textAlign(p.CENTER);
-    p.background('orange');
-
-
+    p.background(p.bg);
+    p.fill(220, 230);
+    p.noStroke();
+    p.rect(p.windowWidth*0.012, 170, p.windowWidth*0.227, 250);
   }
 
   p.draw = function() {
@@ -44,15 +49,22 @@ let sketch1 = function(p) {
     p.rectMode(p.CENTER);
     p.noStroke();
     p.fill('#757472');
-    p.rect(240, 580, 1000, 50);
+    p.rect(p.windowWidth*0.125, 530, 1000, 80);
+    p.fill(0);
+    p.text(`- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, p.windowWidth*0.125, 507);
     p.pop();
 
     p.push();
     randomPrompt = p.int(p.random(prompts.length));
     p.rectMode(p.CENTER);
     p.fill(0);
-    p.textSize(15);
-    p.text(`${prompts[randomPrompt]}`, 240, 580);
+    p.stroke(255);
+    p.strokeWeight(3)
+    p.textSize(p.windowWidth*0.01);
+    p.textFont(p.typeFont);
+    p.text(`${prompts[randomPrompt]}`, p.windowWidth*0.125, 535);
     p.pop();
   }
 
@@ -66,38 +78,77 @@ let sketch1 = function(p) {
     p.noStroke();
     p.fill('#757472');
     p.rectMode(p.CENTER);
-    p.rect(240, 580, 1000, 50);
+    p.rect(p.windowWidth*0.125, 530, 1000, 80);
+    p.fill(0);
+    p.text(`- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, p.windowWidth*0.125, 507);
     p.fill(255);
-    p.stroke('orange');
+    p.text(`   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, p.windowWidth*0.125, 535);
+    p.fill(50);
+    p.stroke('#db8204');
     p.strokeWeight(4);
-    p.circle(x, 580, 25);
+    p.circle(x, 530, 25);
     p.pop();
     p.push();
     p.noStroke();
     p.rectMode(p.CENTER);
-    p.translate(x, 580);
+    p.translate(x, 530);
     p.rotate(rotation);
-    p.fill(0);
+    p.fill(255);
     p.rect(0, 0, 12, 2);
     p.rect(0, 0, 2, 12);
     p.pop();
   }
 
   p.drawTitle = function() {
-    p.textSize(65);
+    p.textSize(p.windowWidth*0.034);
     p.textFont(p.halloweenFont);
-    p.stroke(255);
-    p.strokeWeight(3);
-    p.text(`PICTIONARY`, 240, 120);
-    p.textSize(18);
-    p.strokeWeight(2);
-    p.textFont(p.halloweenFont);
-    p.text(`[halloween edition]`, 350, 142);
+    p.stroke(0);
+    p.strokeWeight(6);
+    p.fill(255);
+    p.text(`PICTIONARY`, p.windowWidth*0.125, 120);
+    p.textSize(p.windowWidth*.012);
+    p.strokeWeight(5);
+    p.textFont(p.playFont);
+    p.text(`[halloween edition]`, p.windowWidth*0.18, 142);
     p.push();
     p.textAlign(p.CORNER);
-    p.text(`how to play:
-- press 's' to save drawing`, 30, 210);
+    p.textFont(p.typeFont);
+    p.textSize(p.windowWidth*0.013);
+    p.fill(0);
+    p.stroke(255);
+    p.strokeWeight(3);
+    p.text(`how to play:`, p.windowWidth*0.018, 205);
+    p.textSize(p.windowWidth*0.009);
+    p.text(`1. press 'Pull Prompt!'`, p.windowWidth*0.019, 235);
+    p.text(`2. draw!`, p.windowWidth*0.019, 263);
+    p.text(`3. press 's' to save drawing`, p.windowWidth*0.019, 291);
+    p.text(`4. press 'p' to save prompt`, p.windowWidth*0.019, 319);
+    p.text(`5. send to friends and have them guess the prompt!`, p.windowWidth*0.019, 330, p.windowWidth*0.226, 70);
+    p.text(`(press 'c' to clear canvas!)`, p.windowWidth*0.021, 396);
+    p.fill(225);
+    p.noStroke();
+    p.beginShape();
+    p.noStroke();
+    p.vertex(p.windowWidth*0.004, 7.68);
+    p.vertex(p.windowWidth*0.246, 7.68);
+    p.vertex(p.windowWidth*0.246, 692.32);
+    p.vertex(p.windowWidth*0.004, 692.32);
+    p.beginContour();
+    p.vertex(p.windowWidth*0.006, 10.76);
+    p.vertex(p.windowWidth*0.006, 689.24);
+    p.vertex(p.windowWidth*0.244, 689.24);
+    p.vertex(p.windowWidth*0.244, 10.76);
+    p.endContour();
+    p.endShape();
     p.pop();
+  }
+
+  p.keyTyped = function() {
+    if (p.key === 'p') {
+      p.saveCanvas('prompt', 'jpg');
+    }
   }
 };
 
@@ -107,7 +158,7 @@ let sketch2 = function(p) {
   let slider;
 
   p.setup = function() {
-    p.createCanvas(1305, 700);
+    p.createCanvas(p.windowWidth*0.68, 700);
     p.background(255);
     p.push();
     p.colorPicker = p.createColorPicker('#000000');
@@ -129,7 +180,7 @@ let sketch2 = function(p) {
 
   p.keyTyped = function() {
     if (p.key === 's') {
-      p.saveCanvas('fileName', 'jpg');
+      p.saveCanvas('drawing', 'jpg');
     } else if (p.key === 'c') {
       p.background(255);
     }
