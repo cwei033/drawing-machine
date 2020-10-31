@@ -111,7 +111,7 @@ let sketch1 = function(p) {
     p.textFont(p.playFont);
     p.text(`[halloween edition]`, p.windowWidth * 0.18, 142);
     p.push();
-    p.textAlign(p.CORNER);
+    p.textAlign(p.LEFT);
     p.textSize(p.windowWidth * 0.013);
     p.fill(0);
     p.textFont(p.halloweenFont);
@@ -161,12 +161,10 @@ let sketch2 = function(p) {
 
   p.setup = function() {
     p.createCanvas(p.windowWidth * 0.68, 700);
+    // p.halloweenFont = p.loadFont('Rye-Regular.ttf');
     p.background(255);
-    p.push();
     p.colorPicker = p.createColorPicker('#000000');
-    // p.colorPicker.parent('pickerPosition');
     p.slider = p.createSlider(1, 60, 3);
-    p.pop();
 
   }
 
@@ -178,6 +176,8 @@ let sketch2 = function(p) {
       p.stroke(p.colorPicker.color());
       p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
     }
+
+    p.drawBorder();
   }
 
   p.keyTyped = function() {
@@ -186,6 +186,17 @@ let sketch2 = function(p) {
     } else if (p.key === 'c') {
       p.background(255);
     }
+  }
+
+  p.drawBorder = function() {
+    p.push();
+    // p.textFont(p.halloweenFont);
+    p.fill(0);
+    p.textSize(p.windowWidth * 0.013);
+    p.noStroke();
+    p.text(`- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, 0, 17);
+    p.text(`- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, 0, 697);
+    p.pop();
   }
 };
 let cnv1 = new p5(sketch1, document.getElementById('left'));
