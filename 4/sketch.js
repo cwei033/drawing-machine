@@ -28,6 +28,8 @@ let sketch1 = function(p) {
     p.fill(190, 230);
     p.noStroke();
     p.rect(p.windowWidth * 0, 180, 1000, 270);
+    p.drawTitle();
+
   }
 
   p.draw = function() {
@@ -40,7 +42,6 @@ let sketch1 = function(p) {
         buttonRU = -buttonRU;
       }
     }
-    p.drawTitle();
   }
 
   p.randomizer = function() {
@@ -165,6 +166,7 @@ let sketch2 = function(p) {
     p.background(255);
     p.colorPicker = p.createColorPicker('#000000');
     p.slider = p.createSlider(1, 60, 3);
+    p.drawBorder();
 
   }
 
@@ -177,7 +179,6 @@ let sketch2 = function(p) {
       p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
     }
 
-    p.drawBorder();
   }
 
   p.keyTyped = function() {
@@ -185,6 +186,7 @@ let sketch2 = function(p) {
       p.saveCanvas('drawing', 'jpg');
     } else if (p.key === 'c') {
       p.background(255);
+      p.drawBorder();
     }
   }
 
