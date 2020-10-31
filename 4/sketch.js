@@ -4,7 +4,7 @@ let sketch1 = function(p) {
   let randomPrompt;
   let animating = false;
   let buttonTurn = 0;
-  let buttonMove = 240;
+  let buttonMove = p.windowWidth*0.125;
   let buttonU = 0.5;
   let buttonRU = 0.15;
   let bg;
@@ -18,16 +18,16 @@ let sketch1 = function(p) {
   }
 
   p.setup = function() {
-    p.createCanvas(p.windowWidth*.25, 700);
+    p.createCanvas(p.windowWidth * .25, 700);
     p.push();
     p.button = p.createButton("Pull Prompt!");
     p.button.mousePressed(p.buttonPressed);
     p.pop();
     p.textAlign(p.CENTER);
     p.background(p.bg);
-    p.fill(220, 230);
+    p.fill(190, 230);
     p.noStroke();
-    p.rect(p.windowWidth*0.012, 170, p.windowWidth*0.227, 250);
+    p.rect(p.windowWidth * 0, 170, 1000, 250);
   }
 
   p.draw = function() {
@@ -35,7 +35,7 @@ let sketch1 = function(p) {
       p.drawButton(buttonMove, buttonTurn);
       buttonTurn += buttonRU;
       buttonMove += buttonU;
-      if (buttonMove >= 260 || buttonMove <= 220) {
+      if (buttonMove >= p.windowWidth*0.135 || buttonMove <= p.windowWidth*0.115) {
         buttonU = -buttonU;
         buttonRU = -buttonRU;
       }
@@ -49,11 +49,11 @@ let sketch1 = function(p) {
     p.rectMode(p.CENTER);
     p.noStroke();
     p.fill('#757472');
-    p.rect(p.windowWidth*0.125, 530, 1000, 80);
+    p.rect(p.windowWidth * 0.125, 530, 1000, 80);
     p.fill(0);
     p.text(`- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, p.windowWidth*0.125, 507);
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, p.windowWidth * 0.125, 507);
     p.pop();
 
     p.push();
@@ -62,9 +62,9 @@ let sketch1 = function(p) {
     p.fill(0);
     p.stroke(255);
     p.strokeWeight(3)
-    p.textSize(p.windowWidth*0.01);
+    p.textSize(p.windowWidth * 0.01);
     p.textFont(p.typeFont);
-    p.text(`${prompts[randomPrompt]}`, p.windowWidth*0.125, 535);
+    p.text(`${prompts[randomPrompt]}`, p.windowWidth * 0.125, 535);
     p.pop();
   }
 
@@ -78,13 +78,13 @@ let sketch1 = function(p) {
     p.noStroke();
     p.fill('#757472');
     p.rectMode(p.CENTER);
-    p.rect(p.windowWidth*0.125, 530, 1000, 80);
+    p.rect(p.windowWidth * 0.125, 530, 1000, 80);
     p.fill(0);
     p.text(`- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, p.windowWidth*0.125, 507);
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, p.windowWidth * 0.125, 507);
     p.fill(255);
-    p.text(`   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, p.windowWidth*0.125, 535);
+    p.text(`   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, p.windowWidth * 0.125, 535);
     p.fill(50);
     p.stroke('#db8204');
     p.strokeWeight(4);
@@ -102,44 +102,48 @@ let sketch1 = function(p) {
   }
 
   p.drawTitle = function() {
-    p.textSize(p.windowWidth*0.034);
+    p.textSize(p.windowWidth * 0.034);
     p.textFont(p.halloweenFont);
     p.stroke(0);
     p.strokeWeight(6);
     p.fill(255);
-    p.text(`PICTIONARY`, p.windowWidth*0.125, 120);
-    p.textSize(p.windowWidth*.012);
+    p.text(`PICTIONARY`, p.windowWidth * 0.125, 120);
+    p.textSize(p.windowWidth * .012);
     p.strokeWeight(5);
     p.textFont(p.playFont);
-    p.text(`[halloween edition]`, p.windowWidth*0.18, 142);
+    p.text(`[halloween edition]`, p.windowWidth * 0.18, 142);
     p.push();
     p.textAlign(p.CORNER);
-    p.textFont(p.typeFont);
-    p.textSize(p.windowWidth*0.013);
+    p.textSize(p.windowWidth * 0.013);
     p.fill(0);
+    p.textFont(p.halloweenFont);
+    p.noStroke();
+    p.text(`- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, p.windowWidth * 0.005, 184);
+    p.text(`- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -`, p.windowWidth * 0.005, 420);
+    p.textFont(p.typeFont);
     p.stroke(255);
-    p.strokeWeight(3);
-    p.text(`how to play:`, p.windowWidth*0.018, 205);
-    p.textSize(p.windowWidth*0.009);
-    p.text(`1. press 'Pull Prompt!'`, p.windowWidth*0.019, 235);
-    p.text(`2. draw!`, p.windowWidth*0.019, 263);
-    p.text(`3. press 's' to save drawing`, p.windowWidth*0.019, 291);
-    p.text(`4. press 'p' to save prompt`, p.windowWidth*0.019, 319);
-    p.text(`5. send to friends and have them guess the prompt!`, p.windowWidth*0.019, 330, p.windowWidth*0.226, 70);
-    p.text(`(press 'c' to clear canvas!)`, p.windowWidth*0.021, 396);
+    p.strokeWeight(2);
+    p.text(`how to play:`, p.windowWidth * 0.018, 206);
+    p.textSize(p.windowWidth * 0.009);
+    p.text(`1. press 'Pull Prompt!'`, p.windowWidth * 0.019, 236);
+    p.text(`2. draw!`, p.windowWidth * 0.019, 264);
+    p.text(`3. press 's' to save drawing`, p.windowWidth * 0.019, 292);
+    p.text(`4. press 'p' to save prompt`, p.windowWidth * 0.019, 320);
+    p.text(`5. send to friends and have them guess the prompt!`, p.windowWidth * 0.019, 331, p.windowWidth * 0.226, 70);
+    p.text(`(press 'c' to clear canvas!)`, p.windowWidth * 0.021, 397);
     p.fill(225);
     p.noStroke();
     p.beginShape();
     p.noStroke();
-    p.vertex(p.windowWidth*0.004, 7.68);
-    p.vertex(p.windowWidth*0.246, 7.68);
-    p.vertex(p.windowWidth*0.246, 692.32);
-    p.vertex(p.windowWidth*0.004, 692.32);
+    p.vertex(p.windowWidth * 0.004, 7.68);
+    p.vertex(p.windowWidth * 0.246, 7.68);
+    p.vertex(p.windowWidth * 0.246, 692.32);
+    p.vertex(p.windowWidth * 0.004, 692.32);
     p.beginContour();
-    p.vertex(p.windowWidth*0.006, 10.76);
-    p.vertex(p.windowWidth*0.006, 689.24);
-    p.vertex(p.windowWidth*0.244, 689.24);
-    p.vertex(p.windowWidth*0.244, 10.76);
+    p.vertex(p.windowWidth * 0.006, 10.76);
+    p.vertex(p.windowWidth * 0.006, 689.24);
+    p.vertex(p.windowWidth * 0.244, 689.24);
+    p.vertex(p.windowWidth * 0.244, 10.76);
     p.endContour();
     p.endShape();
     p.pop();
@@ -158,12 +162,12 @@ let sketch2 = function(p) {
   let slider;
 
   p.setup = function() {
-    p.createCanvas(p.windowWidth*0.68, 700);
+    p.createCanvas(p.windowWidth * 0.68, 700);
     p.background(255);
     p.push();
     p.colorPicker = p.createColorPicker('#000000');
     // p.colorPicker.parent('pickerPosition');
-    p.slider = p.createSlider(1, 30, 3);
+    p.slider = p.createSlider(1, 60, 3);
     p.pop();
 
   }
