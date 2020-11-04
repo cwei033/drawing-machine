@@ -1,6 +1,6 @@
 let sketch1 = function(p) {
   let button;
-  let prompts = ["Squidward putting on clown makeup", "Donald Trump in a Donald Duck costume", "Jack Skellington carving a pumpkin", "Zombified Sanderson Sisters", "Addams family shopping at Target", "apple bobbing except the apples are skulls", "black cat stepping on a crack", "Monster Mash", "Oogie Boogie in a Santa costume", "witches giving out candy", "Frankenstein's monster in a werewolf costume", "three skeletons as the Three Musketeers", "vampire Romen and mummy Juliet"];
+  let prompts = ["Squidward putting on clown makeup", "Donald Trump in a Donald Duck costume", "Jack Skellington carving a pumpkin", "Zombified Sanderson Sisters", "Addams family shopping at Target", "apple bobbing except the apples are skulls", "black cat stepping on a crack", "Monster Mash", "Oogie Boogie in a Santa costume", "witches giving out candy", "Frankenstein's monster in a werewolf costume", "three skeletons as the Three Musketeers", "vampire Romeo and mummy Juliet"];
   let randomPrompt;
   let animating = false;
   let buttonTurn = 0;
