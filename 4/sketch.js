@@ -160,12 +160,17 @@ let sketch2 = function(p) {
   let colorPicker;
   let slider;
 
+  p.preload = function() {
+    p.canvasbg = p.loadImage('5028.png');
+  }
+
+
   p.setup = function() {
     p.createCanvas(p.windowWidth * 0.68, 700);
     // p.halloweenFont = p.loadFont('Rye-Regular.ttf');
-    p.background(255);
     p.colorPicker = p.createColorPicker('#000000');
     p.slider = p.createSlider(1, 60, 3);
+    p.background(p.canvasbg, 0.1);
     p.drawBorder();
 
   }
@@ -185,7 +190,7 @@ let sketch2 = function(p) {
     if (p.key === 's') {
       p.saveCanvas('drawing', 'jpg');
     } else if (p.key === 'c') {
-      p.background(255);
+      p.background(p.canvasbg, 0.1);
       p.drawBorder();
     }
   }
